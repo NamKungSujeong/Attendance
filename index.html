@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KTD_3기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jua&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Orbitron:wght@500;600;700;800;900&family=Sunflower:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./index.css" />
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="center">
+    <h2 class="text-center">KDT_3rd 출석 체크</h2>
+    <!-- 오늘 날짜 띄우기 -->
+    <div class="now">
+      <h4 class="today text-center mt-3">Today</h4>
+      <div class="date text-center"></div>
+    </div>
+    <!-- 출석별로 카운트 띄우기 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-8"></div>
+        <div class="col">
+          <p>현재 인원 : <span id="span">0</span> / 27</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 출석 명단 -->
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6" id="inTable">
+          <!-- <div class="col-10"> -->
+          <table class="text-center ms-5" border="0" cellpadding="10px">
+            <thead>
+              <tr>
+                <th></th>
+                <th>이름</th>
+                <th>출석 여부</th>
+                <th>출석 상태</th>
+                <th>
+                  지각자
+                  <span class="info">(이름 클릭시 삭제)</span>
+                </th>
+                <th>
+                  결석자
+                  <span class="info">(이름 클릭시 삭제)</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>강민선</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student1"
+                      id="radio1"
+                      autocomplete="off"
+                      value="출석"
+                      value2="강민선"
+                    />
+                    <label class="btn btn-outline-success" for="radio1">
+                      출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student1"
+                      id="radio2"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio2"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student1"
+                      id="radio3"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio3"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result1" value="강민선"></div>
+                </td>
+                <td rowspan="27" valign="top">
+                  <ul class="list"></ul>
+                </td>
+                <td rowspan="27" valign="top">
+                  <ul class="list2"></ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>강민성</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student2"
+                      id="radio4"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio4"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student2"
+                      id="radio5"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio5"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student2"
+                      id="radio6"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio6"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result2" value="강민성"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>길동혁</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student3"
+                      id="radio7"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio7"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student3"
+                      id="radio8"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio8"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student3"
+                      id="radio9"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio9"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result3" value="길동혁"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>김영훈</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student4"
+                      id="radio10"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio10"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student4"
+                      id="radio11"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio11"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student4"
+                      id="radio12"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio12"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result4" value="김영훈"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>김예나</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student5"
+                      id="radio13"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio13"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student5"
+                      id="radio14"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio14"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student5"
+                      id="radio15"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio15"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result5" value="김예나"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>김유정</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student6"
+                      id="radio16"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio16"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student6"
+                      id="radio17"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio17"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student6"
+                      id="radio18"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio18"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result6" value="김유정"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>김재란</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student7"
+                      id="radio19"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio19"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student7"
+                      id="radio20"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio20"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student7"
+                      id="radio21"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio21"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result7" value="김재란"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>김현아</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student8"
+                      id="radio22"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio22"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student8"
+                      id="radio23"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio23"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student8"
+                      id="radio24"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio24"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result8" value="김현아"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>남궁수정</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student9"
+                      id="radio25"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio25"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student9"
+                      id="radio26"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio26"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student9"
+                      id="radio27"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio27"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result9" value="남궁수정"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>문준영</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student10"
+                      id="radio28"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio28"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student10"
+                      id="radio29"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio29"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student10"
+                      id="radio30"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio30"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result10" value="문준영"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>박수민</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student11"
+                      id="radio31"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio31"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student11"
+                      id="radio32"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio32"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student11"
+                      id="radio33"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio33"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result11" value="박수민"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>백종민</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student12"
+                      id="radio34"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio34"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student12"
+                      id="radio35"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio35"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student12"
+                      id="radio36"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio36"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result12" value="백종민"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>서승원</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student13"
+                      id="radio37"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio37"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student13"
+                      id="radio38"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio38"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student13"
+                      id="radio39"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio39"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result13" value="서승원"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>신진영</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student14"
+                      id="radio40"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio40"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student14"
+                      id="radio41"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio41"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student14"
+                      id="radio42"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio42"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result14" value="신진영"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td>염정호</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student15"
+                      id="radio43"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio43"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student15"
+                      id="radio44"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio44"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student15"
+                      id="radio45"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio45"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result15" value="염정호"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td>오성인</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student16"
+                      id="radio46"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio46"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student16"
+                      id="radio47"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio47"
+                      >지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student16"
+                      id="radio48"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio48"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result16" value="오성인"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>17</td>
+                <td>이명관</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student17"
+                      id="radio49"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio49"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student17"
+                      id="radio50"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio50">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student17"
+                      id="radio51"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio51"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result17" value="이명관"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>18</td>
+                <td>이지우</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student18"
+                      id="radio52"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio52"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student18"
+                      id="radio53"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio53">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student18"
+                      id="radio54"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio54"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result18" value="이지우"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>19</td>
+                <td>이혜승</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student19"
+                      id="radio55"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio55"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student19"
+                      id="radio56"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio56">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student19"
+                      id="radio57"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio57"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result19" value="이혜승"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>임태욱</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student20"
+                      id="radio58"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio58"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student20"
+                      id="radio59"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio59">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student20"
+                      id="radio60"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio60"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result20" value="임태욱"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>21</td>
+                <td>정지윤</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student21"
+                      id="radio61"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio61"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student21"
+                      id="radio62"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio62">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student21"
+                      id="radio63"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio63"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result21" value="정지윤"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>22</td>
+                <td>조민희</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student22"
+                      id="radio64"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio64"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student22"
+                      id="radio65"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio65">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student22"
+                      id="radio66"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio66"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result22" value="조민희"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>23</td>
+                <td>조부희</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student23"
+                      id="radio67"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio67"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student23"
+                      id="radio68"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio68">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student23"
+                      id="radio69"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio69"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result23" value="조부희"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>24</td>
+                <td>천현승</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student24"
+                      id="radio70"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio70"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student24"
+                      id="radio71"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio71">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student24"
+                      id="radio72"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio72"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result24" value="천현승"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>25</td>
+                <td>최대훈</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student25"
+                      id="radio73"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio73"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student25"
+                      id="radio74"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio74">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student25"
+                      id="radio75"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio75"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result25" value="최대훈"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>26</td>
+                <td>최우리</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student26"
+                      id="radio76"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio76"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student26"
+                      id="radio77"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio77">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student26"
+                      id="radio78"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio78"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result26" value="최우리"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>27</td>
+                <td>최재인</td>
+                <td>
+                  <form>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student27"
+                      id="radio79"
+                      autocomplete="off"
+                      value="출석"
+                    />
+                    <label class="btn btn-outline-success" for="radio79"
+                      >출석</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student27"
+                      id="radio80"
+                      autocomplete="off"
+                      value="지각"
+                    />
+                    <label class="btn btn-outline-secondary" for="radio80">
+                      지각</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="student27"
+                      id="radio81"
+                      autocomplete="off"
+                      value="결석"
+                    />
+                    <label class="btn btn-outline-danger" for="radio81"
+                      >결석</label
+                    >
+                  </form>
+                </td>
+                <td>
+                  <div class="result27" value="최재인"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> -->
+  </body>
+</html>
